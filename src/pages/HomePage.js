@@ -1,38 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import './HomePage.css';
-
-const SAMPLE_PRODUCTS = [
-  {
-    _id: '1',
-    name: 'Wireless Noise-Cancelling Headphones',
-    price: 4999,
-    category: 'Electronics',
-    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop',
-  },
-  {
-    _id: '2',
-    name: 'Premium Running Shoes',
-    price: 2999,
-    category: 'Footwear',
-    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop',
-  },
-  {
-    _id: '3',
-    name: 'Minimalist Leather Watch',
-    price: 6499,
-    category: 'Accessories',
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop',
-  },
-  {
-    _id: '4',
-    name: 'Portable Bluetooth Speaker',
-    price: 1899,
-    category: 'Electronics',
-    image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop',
-  },
-];
 
 const CATEGORIES = [
   { name: 'Electronics', icon: '💻' },
@@ -42,6 +11,21 @@ const CATEGORIES = [
 ];
 
 function HomePage() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/products')
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data.slice(0, 4));
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div className="home-page">
 
@@ -85,11 +69,17 @@ function HomePage() {
           <h2>Featured Products</h2>
           <Link to="/products">See all →</Link>
         </div>
-        <div className="products-grid">
-          {SAMPLE_PRODUCTS.map((product) => (
-            <ProductCard key={product._id} product={product} />
-          ))}
-        </div>
+        {loading ? (
+          <div style={{ textAlign: 'center', padding: '40px' }}>
+            Loading products...
+          </div>
+        ) : (
+          <div className="products-grid">
+            {products.map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Banner Section */}
