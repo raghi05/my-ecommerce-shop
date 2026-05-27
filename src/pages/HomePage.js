@@ -15,7 +15,7 @@ function HomePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/products')
+    fetch('https://shopeasy-backend-6snv.onrender.com/api/products')
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.slice(0, 4));

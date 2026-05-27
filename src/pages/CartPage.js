@@ -20,7 +20,7 @@ function CartPage() {
 
     try {
       const user = JSON.parse(userInfo);
-      const response = await fetch('http://localhost:5000/api/orders', {
+      const response = await fetch('https://shopeasy-backend-6snv.onrender.com/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
