@@ -1,70 +1,219 @@
-# Getting Started with Create React App
+bash
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+cat > /mnt/user-data/outputs/README_new.md << 'EOF'
+# ShopEasy - E-Commerce Website
 
-## Available Scripts
+A full-stack e-commerce platform where users can browse products, add items to cart, and place orders. Built with React, Node.js, and MongoDB.
 
-In the project directory, you can run:
+**Live Website:** https://shopeasy-6divks7l3-raghi-k-u-s-projects.vercel.app
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## What is this project?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+I built this as my 3rd year college project during summer vacation. It's a working e-commerce site where you can actually register, login, browse products, add to cart, and place orders. Everything is connected to a real database.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+- **User Registration & Login** — Create account, secure login with JWT tokens
+- **Browse Products** — View all products from database in a nice grid
+- **Add to Cart** — Add items with quantity control
+- **Shopping Cart** — See your items, change quantities, remove items
+- **Place Orders** — Complete checkout process
+- **Responsive Design** — Works on phone, tablet, desktop
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tech I Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Frontend:**
+- React (with hooks)
+- React Router (for navigation)
+- Tailwind CSS (for styling)
+- Axios (API calls)
 
-### `npm run eject`
+**Backend:**
+- Node.js & Express
+- MongoDB with Mongoose
+- JWT for authentication
+- bcryptjs for passwords
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Hosting:**
+- Frontend on Vercel
+- Backend on Render
+- Database on MongoDB Atlas
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## How to run it locally
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Requirements
+- Node.js installed
+- MongoDB (or MongoDB Atlas account)
+- Git
 
-## Learn More
+### Frontend Setup
+```
+git clone https://github.com/raghi05/my-ecommerce-shop.git
+cd my-ecommerce-shop
+npm install
+npm start
+```
+It opens at http://localhost:3000
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Backend Setup
+```
+cd backend
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create a `.env` file in backend folder:
+```
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
+```
 
-### Code Splitting
+Then start it:
+```
+node server.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Backend runs on http://localhost:5000
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## How to use
 
-### Making a Progressive Web App
+1. **Register** — Click login button, create new account
+2. **Browse** — Check products on Products page
+3. **Add to Cart** — Click "Add to Cart" button
+4. **Checkout** — Go to cart, click "Place Order"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## What I learned
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- How to build a complete full-stack app from scratch
+- Frontend: React hooks, routing, state management
+- Backend: REST APIs, authentication, database design
+- How to connect frontend and backend
+- How to deploy apps to production
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## What's working
 
-### `npm run build` fails to minify
+✓ User login/register system
+✓ 8 sample products in database
+✓ Add/remove from cart
+✓ Cart quantity control
+✓ Place orders
+✓ Shows user name after login
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## What I want to add later
+
+- Payment gateway (Stripe/Razorpay)
+- Admin panel to manage products
+- Product reviews and ratings
+- Search and filter products
+- Order history for users
+- Email confirmation
+
+---
+
+## API Endpoints
+
+Login/Register:
+- POST /api/auth/register
+- POST /api/auth/login
+
+Products:
+- GET /api/products
+- GET /api/products/:id
+
+Orders:
+- POST /api/orders
+- GET /api/orders/myorders
+
+---
+
+## Folder Structure
+
+```
+my-ecommerce-shop/
+├── src/
+│   ├── components/
+│   │   ├── Navbar.js
+│   │   └── ProductCard.js
+│   ├── pages/
+│   │   ├── HomePage.js
+│   │   ├── LoginPage.js
+│   │   ├── CartPage.js
+│   │   └── ProductsPage.js
+│   ├── CartContext.js
+│   └── App.js
+├── backend/
+│   ├── models/
+│   │   ├── userModel.js
+│   │   ├── productModel.js
+│   │   └── orderModel.js
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── productRoutes.js
+│   │   └── orderRoutes.js
+│   └── server.js
+└── README.md
+```
+
+---
+
+## Issues I faced and solved
+
+**MongoDB Connection Issue:**
+- First time Render couldn't connect to MongoDB Atlas
+- Fixed by allowing 0.0.0.0/0 in MongoDB network access
+
+**Cart not updating:**
+- Was storing products in state only
+- Fixed by using Context API for global state
+
+**Environment variables:**
+- Secret keys were exposed in GitHub
+- Added .env to .gitignore, used Render environment variables
+
+---
+
+## If you want to deploy it
+
+**Frontend (Vercel):**
+- Push code to GitHub
+- Connect repo to Vercel
+- It deploys automatically
+
+**Backend (Render):**
+- Create account on render.com
+- Connect GitHub repo
+- Add environment variables
+- Deploy
+
+**Database (MongoDB Atlas):**
+- Create free cluster
+- Add products manually
+- Use connection string in backend
+
+---
+
+## Contact
+
+If you have questions about the code, check the comments in the files or open an issue on GitHub.
+
+GitHub: https://github.com/raghi05/my-ecommerce-shop
+
+---
+
+Built during summer 2026 as a college project to learn full-stack development.
