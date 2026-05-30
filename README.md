@@ -136,7 +136,6 @@ Fixed by adding backend/.env to .gitignore and changed my MongoDB password.
 
 ## Project Structure
 
-## Project Structure
 
 ```
 my-ecommerce-shop/
