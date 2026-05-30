@@ -8,7 +8,7 @@ A full-stack e-commerce platform where users can browse products, add items to c
 
 ## What is this project?
 
-I built this as my 3rd year college project during summer vacation. It's a working e-commerce site where you can actually register, login, browse products, add to cart, and place orders. Everything is connected to a real database.
+ It's a working e-commerce site where you can actually register, login, browse products, add to cart, and place orders. Everything is connected to a real database.
 
 ---
 
@@ -52,11 +52,22 @@ I built this as my 3rd year college project during summer vacation. It's a worki
 - Git
 
 ### Frontend Setup
+git clone https://github.com/raghi05/my-ecommerce-shop.git
+cd my-ecommerce-shop
+npm install
+npm start
 Opens at http://localhost:3000
 
 ### Backend Setup
+cd backend
+npm install
 Create a .env file inside backend folder and add:
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
+
 Start the backend:
+node server.js
 Runs at http://localhost:5000
 
 ---
@@ -124,6 +135,31 @@ Fixed by adding backend/.env to .gitignore and changed my MongoDB password.
 ---
 
 ## Project Structure
+my-ecommerce-shop/
+├── src/
+│   ├── components/
+│   │   ├── Navbar.js
+│   │   └── ProductCard.js
+│   ├── pages/
+│   │   ├── HomePage.js
+│   │   ├── ProductsPage.js
+│   │   ├── LoginPage.js
+│   │   ├── RegisterPage.js
+│   │   └── CartPage.js
+│   ├── CartContext.js
+│   └── App.js
+├── backend/
+│   ├── models/
+│   │   ├── userModel.js
+│   │   ├── productModel.js
+│   │   └── orderModel.js
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── productRoutes.js
+│   │   └── orderRoutes.js
+│   └── server.js
+└── README.md
+
 ---
 
 ## API Routes
