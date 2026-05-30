@@ -135,31 +135,49 @@ Fixed by adding backend/.env to .gitignore and changed my MongoDB password.
 ---
 
 ## Project Structure
-my-ecommerce-shop/
-├── src/
-│   ├── components/
-│   │   ├── Navbar.js
-│   │   └── ProductCard.js
-│   ├── pages/
-│   │   ├── HomePage.js
-│   │   ├── ProductsPage.js
-│   │   ├── LoginPage.js
-│   │   ├── RegisterPage.js
-│   │   └── CartPage.js
-│   ├── CartContext.js
-│   └── App.js
-├── backend/
-│   ├── models/
-│   │   ├── userModel.js
-│   │   ├── productModel.js
-│   │   └── orderModel.js
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   ├── productRoutes.js
-│   │   └── orderRoutes.js
-│   └── server.js
-└── README.md
 
+my-ecommerce-shop/
+│
+├── src/                          # React frontend code
+│   ├── components/               # Reusable components
+│   │   ├── Navbar.js             # Top navigation bar
+│   │   ├── Navbar.css
+│   │   ├── ProductCard.js        # Single product card
+│   │   └── ProductCard.css
+│   │
+│   ├── pages/                    # All pages
+│   │   ├── HomePage.js           # Landing page
+│   │   ├── HomePage.css
+│   │   ├── ProductsPage.js       # All products
+│   │   ├── LoginPage.js          # Login form
+│   │   ├── LoginPage.css
+│   │   ├── RegisterPage.js       # Register form
+│   │   └── CartPage.js           # Shopping cart
+│   │
+│   ├── CartContext.js            # Cart state management
+│   ├── App.js                    # Main routing
+│   ├── index.js                  # Entry point
+│   └── index.css                 # Global styles
+│
+├── backend/                      # Node.js backend code
+│   ├── models/                   # MongoDB schemas
+│   │   ├── userModel.js          # User schema
+│   │   ├── productModel.js       # Product schema
+│   │   └── orderModel.js         # Order schema
+│   │
+│   ├── routes/                   # API routes
+│   │   ├── authRoutes.js         # Login/Register routes
+│   │   ├── productRoutes.js      # Product routes
+│   │   └── orderRoutes.js        # Order routes
+│   │
+│   ├── server.js                 # Express server
+│   ├── seeder.js                 # Add sample products
+│   └── package.json
+│
+├── public/                       # Static files
+├── .gitignore                    # Git ignore file
+├── package.json                  # Frontend dependencies
+└── README.md                     # This file
 ---
 
 ## API Routes
